@@ -503,7 +503,6 @@ begin
 			when S14 =>
 				o_we <= '1';
 				o_addr_sel <= '1';
-				o_done <= tmp_done;
 			when S14_bis =>
 				o_we <= '1';
 				o_addr_sel <= '1';
