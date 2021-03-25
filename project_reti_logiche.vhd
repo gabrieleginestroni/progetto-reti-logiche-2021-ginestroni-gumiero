@@ -333,7 +333,7 @@ begin
 		end if;
 	end process;
 	
-	next_stato: process(current_state, i_start, end_loop, tmp_done)
+	next_stato: process(current_state, i_start, end_loop, tmp_done, reg_dim_out)
 	begin
 		next_state <= current_state;
 		case current_state is
@@ -352,7 +352,11 @@ begin
 		when S3 =>
 			next_state <= S4;
 		when S4 =>
-			next_state <= S4_bis;
+    		if reg_dim_out="0000000000000000" then
+				next_state <= S16;
+    		else
+    			next_state <= S4_bis;
+			end if;
 		when S4_bis =>
 			next_state <= S5;
 		when S5 =>
